@@ -8,12 +8,15 @@ require __DIR__ . '/../vendor/autoload.php';
 require __DIR__ . '/../vendor/yiisoft/yii2/Yii.php';
 
 $config = require __DIR__ . '/../config/web.php';
-
+///////////////Setting of pinpoint php////////////////////
+//Cached class
 define('AOP_CACHE_DIR',__DIR__.'/../Cache/');
+// where to load pinpoint plugins
 define('PLUGINS_DIR',__DIR__.'/../Plugins/');
+
 define('APPLICATION_NAME','APP-yii');
 define('APPLICATION_ID','app-yii');
-
+// 
 /**
  * unregister Yii class loader
  * wrapper with PinpointYiiClassLoader
@@ -36,7 +39,6 @@ pinpoint_user_class_loader_hook();
 $config = require __DIR__ . '/../config/web.php';
 $app = new yii\web\Application($config);
 require_once __DIR__. '/../vendor/eeliu/php_simple_aop/auto_pinpointed.php';
-
 
 $app->run();
 
